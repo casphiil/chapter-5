@@ -689,14 +689,6 @@ h6,
   transform: rotate(90deg);
 }
 
-.scenario-caret[aria-expanded="true"]::before {
-  transform: rotate(45deg);
-}
-
-.scenario-caret[aria-expanded="true"]::after {
-  transform: rotate(-45deg);
-}
-
 .scenario-caret[aria-expanded="true"] {
   transform: rotate(90deg);
 }
