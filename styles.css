@@ -697,11 +697,14 @@ h6,
   transform: rotate(-45deg);
 }
 
+.scenario-caret[aria-expanded="true"] {
+  transform: rotate(90deg);
+}
+
 .scenario-caret:hover,
 .scenario-caret:focus-visible {
   background: #e6e6e6;
   outline: none;
-  transform: rotate(90deg);
 }
 
 .code-accordion .scenario-caret:hover,
