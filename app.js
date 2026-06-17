@@ -785,7 +785,6 @@ function selectRisk(index) {
 function revealQuiz() {
   if (state.visited.size !== risks.length) return;
   state.quizRevealed = true;
-  refs.riskExplorer.hidden = true;
   refs.continueSection.hidden = true;
   refs.quizScreen.hidden = false;
   renderQuiz();
