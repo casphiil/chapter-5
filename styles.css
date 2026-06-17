@@ -820,6 +820,10 @@ h6,
   background: #89c6fd;
 }
 
+.alert-icon {
+  background: #ff819f;
+}
+
 .section-icon svg {
   width: 17px;
   height: 17px;
