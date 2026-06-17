@@ -69,8 +69,7 @@ const risks = [
     blocks: [
       { kind: "diagram" },
       { heading: "Real-world scenario", text: "An AI feature generates SQL to query an analytics database based on a user's natural-language question. The code reads: db.query(\"SELECT * FROM events WHERE campaign = \" + llm_output) A user asks: Show me campaign’; DROP TABLE events; --. The LLM faithfully produces that string. The database executes it. All attribution events are gone." },
-      { heading: "Correct code", code: "db.query(\"SELECT * FROM events WHERE campaign = ?\", [llm_output])" },
-      { text: "The parameterised form treats llm_output as data, never as SQL syntax — regardless of what the model was prompted to produce." }
+      { heading: "Correct code", code: "db.query(\"SELECT * FROM events WHERE campaign = ?\", [llm_output])", afterText: "The parameterised form treats llm_output as data, never as SQL syntax — regardless of what the model was prompted to produce." }
     ]
   },
   {
