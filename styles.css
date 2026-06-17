@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "PPFormula";
+  src: url("fonts/PPFormula-SemiExtendedRegular.woff2") format("woff2");
+  font-weight: 400 650;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PPFormula";
+  src: url("fonts/PPFormula-SemiExtendedSemibold.woff2") format("woff2");
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --white: #ffffff;
   --light-gray: #f8f8f8;
@@ -25,9 +41,9 @@
   --diagram-gray-02: #dedede;
   --stroke-light: #c0c0c0;
   --stroke-mid: #565656;
-  --heading-font:
-    "Space Grotesk", "Aptos Display", "Segoe UI", Arial, sans-serif;
-  --body-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --heading-font: "PPFormula", "Space Grotesk", "Aptos Display", "Segoe UI",
+    Arial, sans-serif;
+  --body-font: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --radius: 8px;
   --shadow: 0 18px 48px rgba(23, 23, 23, 0.09);
   --topbar-height: 64px;
@@ -67,6 +83,18 @@ body {
 
 button {
   font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+[class*="title"],
+[class*="heading"],
+[class*="headline"] {
+  font-family: var(--heading-font);
 }
 
 .topbar {
