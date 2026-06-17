@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Coding - OWASP LLM Top 10</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="icon-button menu-button" id="menuButton" type="button" aria-label="Open navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <img class="brand-symbol" src="IMG/butterfly-symbol-black.svg" alt="">
+    <div class="topbar-title">AI Security and Data Governance in the Software Development Lifecycle</div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="course-drawer" id="courseDrawer" aria-hidden="true">
+    <button class="icon-button close-button" id="closeDrawerButton" type="button" aria-label="Close navigation">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" />
+      </svg>
+    </button>
+    <div class="drawer-course-name">AI Security and Data Governance in the Software Development Lifecycle</div>
+    <div class="drawer-percent" id="drawerPercent">0% COMPLETE</div>
+    <div class="course-progress" aria-hidden="true">
+      <span id="courseProgressFill"></span>
+    </div>
+    <ol class="course-lessons" id="courseLessons"></ol>
+  </aside>
+
+  <main class="app-shell">
+    <section class="intro-screen" id="introScreen">
+      <div class="intro-copy">
+        <h1><span>Secure Coding -</span><span>OWASP LLM Top 10</span></h1>
+        <p>The OWASP LLM Top 10 is a checklist of the ten most common security risks in AI applications. Every time you build or review an AI feature, go through this list to make sure you haven’t missed anything important.</p>
+      </div>
+      <div class="intro-visual" aria-hidden="true">
+        <img src="IMG/intro-privacy-ai.png" alt="">
+      </div>
+    </section>
+
+    <section class="risk-explorer" id="riskExplorer">
+      <nav class="risk-nav" id="riskNav" aria-label="OWASP LLM risks"></nav>
+      <article class="risk-panel" id="riskPanel"></article>
+    </section>
+
+    <section class="continue-section" id="continueSection">
+      <button class="primary-button continue-button" id="continueButton" type="button" disabled>Continue to Quiz</button>
+    </section>
+
+    <section class="quiz-screen" id="quizScreen" hidden>
+      <div class="quiz-header">
+        <h1>Quiz Module 5</h1>
+      </div>
+      <div class="quiz-list" id="quizList"></div>
+      <div class="lesson-next-section">
+        <button class="primary-button lesson-next-button" id="lessonNextButton" type="button" disabled>Continue</button>
+      </div>
+    </section>
+
+    <section class="next-lesson-screen" id="nextLessonScreen" hidden>
+      <h1>Verification and Validation</h1>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
