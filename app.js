@@ -156,6 +156,7 @@ const quiz = [
 
 const state = {
   currentRisk: 0,
+  activeNav: "risk",
   visited: new Set([0]),
   quizRevealed: false,
   attempts: new Map()
@@ -328,7 +329,7 @@ function renderRiskNav() {
     const button = el("button", "risk-tab");
     button.type = "button";
     button.dataset.index = index;
-    if (index === state.currentRisk) button.classList.add("is-active");
+    if (state.activeNav === "risk" && index === state.currentRisk) button.classList.add("is-active");
     if (state.visited.has(index)) button.classList.add("is-visited");
     const check = el("span", "risk-check");
     check.append(checkIcon());
@@ -336,6 +337,18 @@ function renderRiskNav() {
     button.addEventListener("click", () => selectRisk(index));
     refs.riskNav.append(button);
   });
+
+  const quizComplete = state.visited.size === risks.length;
+  const quizButton = el("button", "risk-tab quiz-tab");
+  quizButton.type = "button";
+  quizButton.disabled = !quizComplete;
+  if (state.activeNav === "quiz") quizButton.classList.add("is-active");
+  if (state.quizRevealed) quizButton.classList.add("is-visited");
+  const check = el("span", "risk-check");
+  if (state.quizRevealed) check.append(checkIcon());
+  quizButton.append(check, el("span", "risk-tab-label", "Quiz Module 5"));
+  quizButton.addEventListener("click", selectQuiz);
+  refs.riskNav.append(quizButton);
 }
 
 function renderHeading(section, heading, kind) {
@@ -775,6 +788,7 @@ function updateContinue() {
 function selectRisk(index) {
   if (index < 0 || index >= risks.length) return;
   state.currentRisk = index;
+  state.activeNav = "risk";
   state.visited.add(index);
   renderRiskNav();
   renderRiskPanel();
@@ -782,12 +796,25 @@ function selectRisk(index) {
   document.getElementById("riskExplorer").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+function selectQuiz() {
+  if (state.visited.size !== risks.length) return;
+  if (!state.quizRevealed) {
+    revealQuiz();
+    return;
+  }
+  state.activeNav = "quiz";
+  renderRiskNav();
+  refs.quizScreen.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 function revealQuiz() {
   if (state.visited.size !== risks.length) return;
   state.quizRevealed = true;
+  state.activeNav = "quiz";
   refs.continueSection.hidden = true;
   refs.quizScreen.hidden = false;
   renderQuiz();
+  renderRiskNav();
   updateCourseProgress();
   refs.quizScreen.scrollIntoView({ behavior: "smooth", block: "start" });
 }

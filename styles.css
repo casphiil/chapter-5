@@ -474,6 +474,11 @@ h6,
   border-radius: 34px;
 }
 
+.risk-tab:disabled {
+  color: var(--stroke-light);
+  cursor: not-allowed;
+}
+
 .risk-tab.is-active {
   background: #dbeaff;
   border-color: transparent;
