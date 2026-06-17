@@ -265,7 +265,7 @@ function svgIcon(kind) {
     folder: "IMG/icon-folder.svg",
     definition: "IMG/icon-definition.svg"
   };
-  const span = el("span", `section-icon${kind === "code" ? " code-icon" : ""}`);
+  const span = el("span", `section-icon ${kind}-icon`);
   if (brandIconPaths[kind]) {
     const image = el("img");
     image.src = brandIconPaths[kind];

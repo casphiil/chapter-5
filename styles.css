@@ -816,6 +816,10 @@ h6,
   flex: 0 0 30px;
 }
 
+.folder-icon {
+  background: #89c6fd;
+}
+
 .section-icon svg {
   width: 17px;
   height: 17px;
