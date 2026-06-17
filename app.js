@@ -356,7 +356,7 @@ function scenarioIcon() {
 function renderAccordionBlock(block, className, iconNode) {
   const section = el("section", `content-block ${className}`.trim());
   const header = el("div", "scenario-toggle");
-  const caret = el("button", "scenario-caret", "+");
+  const caret = el("button", "scenario-caret");
   caret.type = "button";
   caret.setAttribute("aria-expanded", "false");
   caret.setAttribute("aria-label", `Open ${block.heading}`);
@@ -384,7 +384,6 @@ function renderAccordionBlock(block, className, iconNode) {
     caret.setAttribute("aria-label", `${isOpen ? "Open" : "Close"} ${block.heading}`);
     body.hidden = isOpen;
     section.classList.toggle("is-open", !isOpen);
-    caret.textContent = isOpen ? "+" : "-";
   });
 
   section.append(header, body);

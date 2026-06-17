@@ -615,7 +615,7 @@ h6,
 
 .scenario-toggle {
   display: grid;
-  grid-template-columns: 64px minmax(0, 1fr) 28px;
+  grid-template-columns: 64px minmax(0, 1fr) 44px;
   gap: 18px;
   align-items: center;
   width: 100%;
@@ -661,29 +661,50 @@ h6,
 .scenario-caret {
   display: grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
-  border: 0;
-  border-radius: 8px;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
   background: transparent;
   color: var(--black);
-  font-family: var(--body-font);
-  font-size: 36px;
-  font-weight: 300;
-  line-height: 1;
-  text-align: center;
   cursor: pointer;
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.scenario-caret::before,
+.scenario-caret::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 1px;
+  background: currentColor;
+  transition: transform 160ms ease;
+}
+
+.scenario-caret::after {
+  transform: rotate(90deg);
+}
+
+.scenario-caret[aria-expanded="true"]::before {
+  transform: rotate(45deg);
+}
+
+.scenario-caret[aria-expanded="true"]::after {
+  transform: rotate(-45deg);
 }
 
 .scenario-caret:hover,
 .scenario-caret:focus-visible {
-  background: rgba(23, 23, 23, 0.08);
+  background: #e6e6e6;
   outline: none;
 }
 
 .code-accordion .scenario-caret:hover,
 .code-accordion .scenario-caret:focus-visible {
-  background: rgba(255, 255, 255, 0.14);
+  background: #8f8f8f;
 }
 
 .scenario-body {
@@ -1663,7 +1684,7 @@ h6,
   }
 
   .scenario-toggle {
-    grid-template-columns: 54px minmax(0, 1fr) 24px;
+    grid-template-columns: 54px minmax(0, 1fr) 40px;
     padding: 16px 18px;
     min-height: 80px;
     gap: 12px;
@@ -1681,7 +1702,13 @@ h6,
   }
 
   .scenario-caret {
-    font-size: 28px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .scenario-caret::before,
+  .scenario-caret::after {
+    width: 20px;
   }
 
   .scenario-body {
