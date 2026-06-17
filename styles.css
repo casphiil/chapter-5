@@ -828,6 +828,10 @@ h6,
   background: #9affc4;
 }
 
+.concrete-icon {
+  background: #ffcdda;
+}
+
 .section-icon svg {
   width: 17px;
   height: 17px;

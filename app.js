@@ -245,7 +245,8 @@ function richEl(tag, className, text) {
 }
 
 function iconKindForHeading(heading = "") {
-  if (heading.includes("Real-world scenario") || heading.includes("Concrete example")) return "world";
+  if (heading.includes("Concrete example")) return "concrete";
+  if (heading.includes("Real-world scenario")) return "world";
   if (heading.includes("What to add to your code") || heading.includes("Correct code")) return "code";
   if (heading.includes("Principle") || heading.includes("Rules") || heading.includes("Also remember")) return "alert";
   if (heading.includes("Test")) return "test";
@@ -257,6 +258,7 @@ function iconKindForHeading(heading = "") {
 function svgIcon(kind) {
   const brandIconPaths = {
     world: "IMG/icon-world.svg",
+    concrete: "IMG/icon-world.svg",
     code: "IMG/code.png",
     alert: "IMG/icon-alert.svg",
     test: "IMG/icon-test.svg",
