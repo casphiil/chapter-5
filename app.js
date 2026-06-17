@@ -355,10 +355,12 @@ function scenarioIcon() {
 
 function renderAccordionBlock(block, className, iconNode) {
   const section = el("section", `content-block ${className}`.trim());
-  const toggle = el("button", "scenario-toggle");
-  toggle.type = "button";
-  toggle.setAttribute("aria-expanded", "false");
-  toggle.append(iconNode, el("span", "scenario-title", block.heading), el("span", "scenario-caret", "+"));
+  const header = el("div", "scenario-toggle");
+  const caret = el("button", "scenario-caret", "+");
+  caret.type = "button";
+  caret.setAttribute("aria-expanded", "false");
+  caret.setAttribute("aria-label", `Open ${block.heading}`);
+  header.append(iconNode, el("span", "scenario-title", block.heading), caret);
 
   const body = el("div", "scenario-body");
   body.hidden = true;
@@ -376,15 +378,16 @@ function renderAccordionBlock(block, className, iconNode) {
     body.append(list);
   }
 
-  toggle.addEventListener("click", () => {
-    const isOpen = toggle.getAttribute("aria-expanded") === "true";
-    toggle.setAttribute("aria-expanded", String(!isOpen));
+  caret.addEventListener("click", () => {
+    const isOpen = caret.getAttribute("aria-expanded") === "true";
+    caret.setAttribute("aria-expanded", String(!isOpen));
+    caret.setAttribute("aria-label", `${isOpen ? "Open" : "Close"} ${block.heading}`);
     body.hidden = isOpen;
     section.classList.toggle("is-open", !isOpen);
-    toggle.querySelector(".scenario-caret").textContent = isOpen ? "+" : "−";
+    caret.textContent = isOpen ? "+" : "-";
   });
 
-  section.append(toggle, body);
+  section.append(header, body);
   return section;
 }
 
