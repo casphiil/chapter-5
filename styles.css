@@ -671,7 +671,8 @@ h6,
   cursor: pointer;
   transition:
     background 160ms ease,
-    color 160ms ease;
+    color 160ms ease,
+    transform 180ms ease;
 }
 
 .scenario-caret::before,
@@ -700,6 +701,7 @@ h6,
 .scenario-caret:focus-visible {
   background: #e6e6e6;
   outline: none;
+  transform: rotate(90deg);
 }
 
 .code-accordion .scenario-caret:hover,
